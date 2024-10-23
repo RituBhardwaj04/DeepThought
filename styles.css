@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px 30px;
+}
+
+/* Navbar styling */
+nav {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   background-color: white;
+   padding: 15px 30px;
+   text-align: center;
+   z-index: 1000; /* Ensure navbar stays on top */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: blue;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Side panel styling */
+.side-panel {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 250px; /* Expanded width */
+    height: 100%;
+    background-color: white;
+    color: black;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+/* Content inside the side panel */
+.panel-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Styling for the heading */
+.side-panel h3 {
+    margin-top: 0;
+    text-align: left;
+    background-color: black;
+    color: white;
+    height: 30px;
+    
+    padding-left: 10px;
+}
+.side-panel h4{
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+/* Styling for the list */
+.side-panel ul {
+    padding-left: 20px; /* Add padding to align with heading */
+}
+
+.side-panel ul li {
+    font-size: 12px;
+    list-style-type: disc; /* Use disc bullets */
+    margin-bottom: 10px;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000; /* Ensures the button is on top of other elements */
+    width: 25px;
+    height: 30px;
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Collapsed panel state */
+.side-panel.collapsed {
+    width: 60px; /* Collapsed width */
+}
+
+.side-panel.collapsed .panel-content {
+    display: none;
+}
+
+.side-panel.collapsed .toggle-btn {
+    transform: rotate(180deg); /* Change arrow direction */
+}
+
+/* When expanded, adjust the main content margin */
+.side-panel.expanded + .main-content {
+    margin-left: 250px;
+}
+
+.main-content {
+    margin-left: 60px; /* Left margin for collapsed panel */
+    padding: 80px 20px; /* Top padding for navbar */
+}
+
+/* Card layout styling */
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping to a new row */
+    gap: 20px; /* Space between cards */
+}
+
+/* Individual card styling */
+.card {
+    background-color: white; /* Card background color */
+    color: black; /* Text color */
+    border-radius: 5px;
+    padding: 20px;
+    width: calc(50% - 10px); /* Two cards per row, accounting for gap */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Center-align text */
+}
+
+/* Card image styling */
+.card img {
+    max-width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners for images */
+    margin-top: 10px; /* Space above the image */
+}
+
+/* Styling for heading in the card */
+.card h3 {
+    margin: 0; /* Remove default margin */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: black;
+    color: white;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-logo {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
